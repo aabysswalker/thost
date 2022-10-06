@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\VideoController;
 
 Route::prefix('api')->group(static function() {
     Route::prefix('auth')->group(static function() {
@@ -22,9 +23,9 @@ Route::prefix('api')->group(static function() {
         Route::get('/me', [UserController::class, 'index']);
         Route::get('/user/{id}', [UserController::class, 'show']);
 
-        Route::post('/video', [VideController::class, 'store']);
-        Route::get('/video/{id}', [VideController::class, 'show']);
+        Route::get('/video/{id}', [VideoController::class, 'show']);
+        Route::post('/upload', [VideoController::class, 'store']);
         
-        Route::post('/video{id}', [CommentController::class, 'store']);
+        Route::post('/video/{id}', [CommentController::class, 'store']);
     });
 });
