@@ -14,7 +14,6 @@ class RegisterController extends Controller
     
     public function register(Request $request) {
         
-        // TODO: Do some validation
         $user = [
             'email' => $request->input('email'),
             'name' => $request->input('name'),
