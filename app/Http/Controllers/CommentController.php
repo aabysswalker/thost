@@ -17,7 +17,6 @@ class CommentController extends Controller
     public function store(Request $request, $id) 
     {
         $data = [
-            'title' => $request->input('title'),
             'content' => $request->input('content'),
             'video_id' => $id,
             'user_id' => Auth::user()->id,
