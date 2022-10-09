@@ -12,7 +12,8 @@ class Comment extends Model
     
     protected $fillable = ['name', 'video_id'];
 
-    public function video() {
+    public function video() 
+    {
         return $this->belongsTo(Video::class);
     }
 }

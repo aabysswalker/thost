@@ -25,4 +25,9 @@ class VideoController extends Controller
 
         return $this->videoRepository->createVideo($data);
     }
+
+    public function show($id)
+    {
+        return $this->videoRepository->showVideo($id);
+    }
 }
