@@ -10,7 +10,7 @@ use App\Http\Controllers\VideoController;
 
 Route::prefix('api')->group(static function() {
     Route::prefix('auth')->group(static function() {
-        Route::get('/login', [LoginController::class, 'show']);
+        Route::get('/login', [LoginController::class, 'show'])->name('auth.login');
         Route::post('/login', [LoginController::class, 'login']);
     
         Route::get('/register', [RegisterController::class, 'show']);
