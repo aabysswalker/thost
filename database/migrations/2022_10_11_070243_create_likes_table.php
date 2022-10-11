@@ -13,15 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('videos', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->id();
-            $table->string("title");
-            $table->string("path")->default('/');
+            $table->boolean('liked')->default(false);
+            $table->string("video_id");
             $table->string("user_id");
             $table->timestamps();
         });
 
-        Schema::table('videos', function (Blueprint $table) {
+        Schema::table('likes', function (Blueprint $table) {
+            $table->foreign("video_id")->references("id")->on("videos");
             $table->foreign("user_id")->references("id")->on("users");
         });
     }
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('videos');
+        Schema::dropIfExists('likes');
     }
 };

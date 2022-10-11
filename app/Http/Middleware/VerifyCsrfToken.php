@@ -14,10 +14,6 @@ class VerifyCsrfToken extends Middleware
 
      // Ill fix it by adding some form and checking csrf
     protected $except = [
-        '/api/auth/register',
-        '/api/auth/login',
-        '/api/auth/logout',
-        '/api/upload',
         '/api/video/*'
     ];
 }

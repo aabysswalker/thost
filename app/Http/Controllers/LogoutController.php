@@ -7,10 +7,8 @@ use Illuminate\Support\Facades\Auth;
 
 class LogoutController extends Controller
 {
-    public function logout() {
+    public function index() {
         Auth::logout();
-        return response()->json([
-            'message' => 'Successfully logged out'
-        ]);
+        return redirect('/api/auth/login');
     }
 }

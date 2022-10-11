@@ -6,4 +6,5 @@ interface VideoRepositoryInterface
 {
     public function createVideo($data);
     public function showVideo($id);
+    public function showForm();
 }

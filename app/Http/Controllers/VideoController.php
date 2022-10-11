@@ -17,13 +17,20 @@ class VideoController extends Controller
 
     public function store(Request $request) 
     {
+        $path = $request->file('video')->store('uploads', 'public');
+
         $data = [
             'title' => $request->input('title'),
-            'length' => $request->input('length'),
+            'path' => $path,
             'user_id' => Auth::user()->id,
         ];
 
         return $this->videoRepository->createVideo($data);
+    }
+
+    public function index() 
+    {
+        return $this->videoRepository->showForm();
     }
 
     public function show($id)

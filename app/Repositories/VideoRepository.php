@@ -8,9 +8,14 @@ use App\Repositories\Interfaces\VideoRepositoryInterface;
 
 class VideoRepository implements VideoRepositoryInterface {
 
+    public function showForm() {
+        return view('upload');
+    }
+
     public function createVideo($data) 
     {
-        return Video::create($data);
+        Video::create($data);
+        return redirect('/api/me');
     }
 
     public function showVideo($id)
@@ -19,6 +24,8 @@ class VideoRepository implements VideoRepositoryInterface {
 
         $comments = Comment::whereBelongsTo($video)->get();
 
-        return [$video, $comments];
+        $user = Video::find(1)->user()->get();
+
+        return view('video', ['video' => $video, 'comments' => $comments, 'user' => $user]);
     }
 }

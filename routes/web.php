@@ -16,7 +16,7 @@ Route::prefix('api')->group(static function() {
         Route::get('/register', [RegisterController::class, 'show']);
         Route::post('/register', [RegisterController::class, 'register']);
 
-        Route::post('/logout', [LogoutController::class, 'logout']);
+        Route::get('/logout', [LogoutController::class, 'index']);
     });
     
     Route::middleware('auth')->group(static function() {
@@ -24,6 +24,8 @@ Route::prefix('api')->group(static function() {
         Route::get('/user/{id}', [UserController::class, 'show']);
 
         Route::get('/video/{id}', [VideoController::class, 'show']);
+        
+        Route::get('/upload', [VideoController::class, 'index']);
         Route::post('/upload', [VideoController::class, 'store']);
         
         Route::post('/video/{id}', [CommentController::class, 'store']);

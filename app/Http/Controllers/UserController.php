@@ -18,7 +18,7 @@ class UserController extends Controller
 
     public function index() 
     {
-        return Auth::user()->name;
+        return $this->userRepository->showCurrentUser();
     }
 
     public function show($id) 

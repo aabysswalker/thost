@@ -8,8 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function show() {
-        dd('login page');
+    public function show() 
+    {
+        return view('login');
     }
     
     public function login(Request $request) {
@@ -19,10 +20,10 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return "authenticated";
+            return redirect('/api/me');
         }
         else {
-            return "undefined credentials";
+            return redirect('/api/auth/login');
         }
     }
 }
