@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     @vite('resources/css/app.css')
 </head>
-<body style="background-color: black;">
+<body>
 
 <div class="container" style="max-width: 500px; margin: auto;">
 <section style="font-family: Montserrat" class=" bg-[#071e34] flex font-medium items-center justify-center h-screen" >
@@ -29,16 +29,16 @@
 
         @if(isset($userName))
             <div class="mt-8 ">
-                <h2 class="text-white font-bold text-2xl tracking-wide">{{ $userName }}</h2>
+                <h2>{{ $userName }}</h2>
             </div>
         @else
             <div class="mt-8 ">
-                <h2 class="text-white font-bold text-2xl tracking-wide">{{ Auth::user()->name }}</h2>
+                <h2>{{ Auth::user()->name }}</h2>
             </div>
         @endif
 
 
-        <div class="heading text-center font-bold text-2xl m-5 text-gray-100" style="color: white">User videos</div>
+        <div class="heading text-center font-bold text-2xl m-5 text-gray-100">User videos</div>
         @foreach($videos as $video)
             <div class="container" style="color: white; margin: 50px 0">
                 <div class="holder mx-auto w-10/12 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">

@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\VideoController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\VideoController;
 
 Route::prefix('api')->group(static function() {
     Route::prefix('auth')->group(static function() {
@@ -24,6 +25,7 @@ Route::prefix('api')->group(static function() {
         Route::get('/user/{id}', [UserController::class, 'show']);
 
         Route::get('/video/{id}', [VideoController::class, 'show']);
+        Route::post('/video/{id}/like', [LikeController::class, 'index']);
         
         Route::get('/upload', [VideoController::class, 'index']);
         Route::post('/upload', [VideoController::class, 'store']);

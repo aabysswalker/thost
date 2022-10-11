@@ -31,9 +31,13 @@
     <div class="flex items-center justify-between">
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
         Leave
-      </button>
+</button>
     </div>
   </form>
+  <button class='like'><i class="fas fa-fire">Like</i></button>
+                    <div class="mt-8 ">
+                            <h2 class="text-white font-bold text-2xl tracking-wide" style="color: black">{{ $likes->count() }}</h2>
+                        </div>
     @foreach($comments as $comment)
             <div class="container" style="color: black;margin: 50px 0">
                 <div class="holder mx-auto w-10/12 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
@@ -44,6 +48,17 @@
                 </div>
             </div>
         @endforeach
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script>
 
+    $('.like').on('click', function(event) {
+
+      $.ajax({
+        method: 'POST',
+        url: '/api/video/{{ $video[0]->id }}/like'
+      })
+    });
+
+</script>
 </body>
 </html>

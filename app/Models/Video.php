@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Like;
 use App\Models\User;
 use App\Models\Comment;
 use App\Models\Category;
@@ -24,5 +25,9 @@ class Video extends Model
 
     public function category() {
         return $this->hasMany(Category::class);
+    }
+
+    public function likes() {
+        return $this->hasMany(Like::class);
     }
 }
